@@ -4,7 +4,7 @@ public class ParkingTicketSimulator {
 
         ParkingMeter meter = new ParkingMeter(60);
 
-        PoliceOfficer officer = new PoliceOfficer("Bob Smith", "3322");
+        PoliceOfficer officer = new PoliceOfficer("Rob Smith", "3322");
 
         TicketIssuer issuer = new TicketIssuer();
         ParkingTicket ticket = issuer.patrol(car, meter, officer);

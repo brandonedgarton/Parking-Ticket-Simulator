@@ -10,17 +10,23 @@ public class ParkingTicket {
     public final double HOURLY_FINE = 10.00;
 
     public ParkingTicket(ParkedCar aCar, PoliceOfficer anOfficer, int min) {
-        car = new ParkedCar(aCar);
-        officer = new PoliceOfficer(anOfficer);
+        car = aCar;
+        officer = anOfficer;
         minutes = min;
 
         calculateFine();
     }
 
-    public ParkingTicket(ParkingTicket ticket2) {
-        car = new ParkedCar(ticket2.car);
-        officer = new PoliceOfficer(ticket2.officer);
-        fine = ticket2.fine;
+    /*
+     * public ParkingTicket(ParkingTicket ticket2) {
+     * car = new ParkedCar(ticket2.car);
+     * officer = new PoliceOfficer(ticket2.officer);
+     * fine = ticket2.fine;
+     * }
+     */
+
+    public ParkingTicket copy() {
+        return new ParkingTicket(car.copy(), officer.copy(), minutes);
     }
 
     private void calculateFine() {
@@ -37,11 +43,11 @@ public class ParkingTicket {
     }
 
     public void setCar(ParkedCar c) {
-        car = new ParkedCar(c);
+        car = c;
     }
 
     public void setOfficer(PoliceOfficer po) {
-        officer = new PoliceOfficer(po);
+        officer = po;
     }
 
     public void setFine(double f) {
@@ -49,11 +55,11 @@ public class ParkingTicket {
     }
 
     public ParkedCar getCar() {
-        return new ParkedCar(car);
+        return car;
     }
 
     public PoliceOfficer getOfficer() {
-        return new PoliceOfficer(officer);
+        return officer;
     }
 
     public double getFine() {
@@ -66,7 +72,7 @@ public class ParkingTicket {
         String str = "Car Data: \n" + car +
                 "\nOfficer Data: " + officer +
                 "\nMinutes Illegally Parked: " + minutes +
-                "\nFine: " + dollar.format(fine);
+                "\nFine: $" + dollar.format(fine);
         return str;
     }
 }

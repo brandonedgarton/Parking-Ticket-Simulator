@@ -7,9 +7,15 @@ public class PoliceOfficer {
         badgeNumber = badNum;
     }
 
-    public PoliceOfficer(PoliceOfficer cop2) {
-        name = cop2.name;
-        badgeNumber = cop2.badgeNumber;
+    /*
+     * public PoliceOfficer(PoliceOfficer cop2) {
+     * name = cop2.name;
+     * badgeNumber = cop2.badgeNumber;
+     * }
+     */
+
+    public PoliceOfficer copy() {
+        return new PoliceOfficer(name, badgeNumber);
     }
 
     public void setName(String n) {
