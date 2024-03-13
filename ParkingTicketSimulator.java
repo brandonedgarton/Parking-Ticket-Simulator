@@ -1,4 +1,3 @@
-//import java.text.DecimalFormat;
 
 public class ParkingTicketSimulator {
     public static void main(String[] args) {
