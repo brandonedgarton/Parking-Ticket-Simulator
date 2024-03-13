@@ -1,4 +1,3 @@
-
 public class ParkingTicketSimulator {
     public static void main(String[] args) {
         ParkedCar car = new ParkedCar("Mercedes", "G Wagon", "Black", "CLNWHIP", 225);
@@ -7,7 +6,8 @@ public class ParkingTicketSimulator {
 
         PoliceOfficer officer = new PoliceOfficer("Bob Smith", "3322");
 
-        ParkingTicket ticket = officer.patrol(car, meter);
+        TicketIssuer issuer = new TicketIssuer();
+        ParkingTicket ticket = issuer.patrol(car, meter, officer);
 
         if (ticket != null) {
             System.out.print(ticket);
